@@ -1,0 +1,11 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="project.controller.mainview" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" id="idmainview1">
+		<content>
+	<Label text="name"/>
+	<Input value=""/>
+	<Label text="id"/>
+	<Input value=""/>
+		</content>
+	</Page>
+</core:View>

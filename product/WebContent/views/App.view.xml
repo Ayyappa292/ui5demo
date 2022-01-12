@@ -1,0 +1,11 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="product.controllers.App" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="App"/>
+	<pages>
+	<page>
+	<content>
+	  <mvc:XMLView viewName="final.views.nextview"/>
+	</content>
+	</page>
+	</pages>
+</core:View>

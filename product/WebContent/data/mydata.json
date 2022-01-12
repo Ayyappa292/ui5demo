@@ -1,0 +1,71 @@
+{
+	"products": [
+		{
+			"productid": "1",
+			"productname": "LCD moniter",
+			"productimage": "img1",
+			"mrp": "Rs.5000/-",
+			"offerprice": "Rs.4500/-"
+		},
+		{
+			"productid": "2",
+			"productname": "laptop",
+			"productimage": "img2",
+			"mrp": "Rs.50,000/-",
+			"offerprice": "Rs.45,000/-"
+		},
+		{
+			"productid": "3",
+			"productname": "wireless mouse",
+			"productimage": "img3",
+			"mrp": "Rs.600/-",
+			"offerprice": "Rs.550/-"
+		},
+		{
+			"productid": "4",
+			"productname": "wireless keyboard",
+			"productimage": "img4",
+			"mrp": "Rs.500/-",
+			"offerprice": "Rs.450/-"
+		},
+		{
+			"productid": "5",
+			"productname": "Intel CPU",
+			"productimage": "img5",
+			"mrp": "Rs.30,000/-",
+			"offerprice": "Rs.28,000/-"
+		}
+	],
+	"users":[
+	{
+	"userid" : "501",
+	"username" : "ayyappa",
+	"validity": "lifetime",
+	"membership" : "diamond"
+	},
+	{
+	"userid" : "502",
+	"username" : "manikanta",
+	"validity": "2022",
+	"membership" : "silver"
+	},
+	{
+	"userid" : "503",
+	"username" : "shiva",
+	"validity": "Aug 2022",
+	"membership" : "gold"
+	},
+	{
+	"userid" : "504",
+	"username" : "likitha",
+	"validity": "2023",
+	"membership" : "gold"
+	},
+	{
+	"userid" : "505",
+	"username" : "alekhya",
+	"validity": "2023",
+	"membership" : "gold"
+	}
+	]
+}

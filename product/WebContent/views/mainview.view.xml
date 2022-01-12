@@ -1,0 +1,121 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="product.controllers.mainview"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="welcome users">
+		<content>
+		<SplitApp id="SplitAppDemo" initialDetail="detail"
+				initialMaster="master">
+				<detailPages>
+				<Page id="detail">
+				<content>
+					<FlexBox alignContent="Center" class="myflexbox1">
+					<items>
+					<core:Icon src="sap-icon://detail-view" size="150px"/>
+					</items>
+					</FlexBox>
+					<Text text="Click on a user to display users Personal information"  class="myemptypage"/>
+					</content>
+				</Page>
+					<Page id="detailpage1" title="Product Information">
+					<Table items="{iknow>/products}">
+					<columns>
+					<Column>
+					</Column>
+					<Column>
+					<Text text="Product ID"/>
+					</Column>
+					<Column>
+					<Text text="Product Name"/>
+					</Column>
+					<Column>
+					<Text text="Prodcut Image"/>
+					</Column>
+					<Column>
+					<Text text="M.R.P"/>
+					</Column>
+					<Column>
+					<Text text="Offer Price"/>
+					</Column>
+					</columns>
+					<items>
+					<ColumnListItem>
+					<cells>
+					<CheckBox/>
+					<Text text="{iknow>productid}"/>
+					<Text text="{iknow>productname}"/>
+					<Text text="{iknow>productimage}"/>
+					<Text text="{iknow>mrp}"/>
+					<Text text="{iknow>offerprice}"/>
+					</cells>
+					</ColumnListItem>
+					</items>
+					</Table>
+					<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<OverflowToolbarButton tooltip="Add" text="Add" icon="sap-icon://add" press=".onadd"/>
+				<OverflowToolbarButton tooltip="Edit" text="Edit" icon="sap-icon://edit"/>
+				<OverflowToolbarButton tooltip="Delete" text="Delete" icon="sap-icon://delete"/>
+			</OverflowToolbar>
+		</footer>
+					</Page>
+					<Page id="detailpage2" title="Users Information">
+					<Table items="{iknow>/users}">
+					<columns>
+					<Column>
+					</Column>
+					<Column>
+					<Text text="User ID"/>
+					</Column>
+					<Column>
+					<Text text="User Name"/>
+					</Column>
+					<Column>
+					<Text text="validity"/>
+					</Column>
+					<Column>
+					<Text text="MemberShip"/>
+					</Column>
+					</columns>
+					<items>
+					<ColumnListItem>
+					<cells>
+					<CheckBox/>
+					<Text text="{iknow>userid}"/>
+					<Text text="{iknow>username}"/>
+					<Text text="{iknow>validity}"/>
+					<Text text="{iknow>membership}"/>
+					</cells>
+					</ColumnListItem>
+					</items>
+					</Table>
+					<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<OverflowToolbarButton tooltip="Add" text="Add" icon="sap-icon://add" press=".onadd1"/>
+				<OverflowToolbarButton tooltip="Edit" text="Edit" icon="sap-icon://edit"/>
+				<OverflowToolbarButton tooltip="Delete" text="Delete" icon="sap-icon://delete"/>
+			</OverflowToolbar>
+		</footer>
+					</Page>
+				</detailPages>
+				<masterPages>
+					<Page id="master" title="Options" backgroundDesign="List">
+						<List itemPress=".onListItemPress">
+							<StandardListItem title="Products"
+								type="Navigation" press=".onproducts" custom:to="detailpage1"/>
+							<StandardListItem title="Users"
+								type="Navigation" press=".onusers" custom:to="detailpage2"/>
+							<StandardListItem title="Checkout"/>
+						</List>
+					</Page>
+				</masterPages>
+			</SplitApp>
+		</content>
+		
+	</Page>
+</core:View>
+

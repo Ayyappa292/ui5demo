@@ -1,0 +1,39 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"  xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+		controllerName="sample.sample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Registration Page">
+		<content>
+	<f:SimpleForm editable="true">
+	<Label text="Full Name" required="true" vAlign="Middle"/>
+	<Input width="50%" value="{demo>/data/fullname}"/>
+	<Button text="next" press=".onpress"/>
+<!-- 	<Label text="UserName" required="true"/>
+	<Input width="50%" value="{/username}"/>
+	<Label text="Email-Id" required="true"/>
+	<Input width="50%" value="{/email}"/>
+	<Label text="Password" required="true"/>
+	<Input width="50%" value="{/pass}" />
+	<Label text="Mobile Number" required="true"/>
+	<Input width="50%" value="{/mobile}" />
+	<Label  required ="true" text="Date Of Birth"/>
+	<DatePicker width="30%"/>
+	<Label text="Select Country" required="true"/>
+	<ComboBox required="true" width="30%">
+	<core:Item text="U.S.A" />
+	<core:Item text="India" />
+	<core:Item text="U.K" />
+	<core:Item text="Russia" />
+	<core:Item text="Australia" />
+	</ComboBox>
+	<Label/>
+	<l:HorizontalLayout>
+	<Link text="Already Registered?" href="#"/>
+	<Link text="Forgot Password?" href="#"/> 
+	</l:HorizontalLayout>
+	<Label/> 
+	<Button type="Accept" text="Submit" press="onclick"  width="20%"/> -->
+
+	</f:SimpleForm>
+	
+		</content>
+	</Page>
+</core:View>
