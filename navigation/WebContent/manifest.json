@@ -1,0 +1,80 @@
+{
+	"sap.app": {
+		"version": "1.1.0",
+		"id": "navigation",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+	"rootView": "navigation.views.firstpage",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+					
+				}
+			}
+		},
+		 "routing": {
+           "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async" : true,
+                "viewPath": "navigation.views",
+                "controlId":"App",
+                "controlAggregation": "pages"
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "firstpage",
+                    "target": "firstpage"
+                },
+                 {
+                    "pattern": "secondpage",
+                    "name": "secondpage",
+                    "target": "secondpage"
+                },
+                {
+                "pattern":"thirdpage",
+                "name":"thirdpage",
+             	"target":"thirdpage"
+                }        
+            ],
+            "targets":{
+            "firstpage":{
+            "viewName":"firstpage",
+            "viewType": "XML",
+            "viewId":"firstpage",
+            "viewLevel":1
+            },
+            "secondpage":{
+            "viewName":"secondpage",
+            "viewType": "XML",
+            "viewId":"secondpage",
+            "viewLevel":2
+            },
+            "thirdpage":{
+            "viewName":"thirdpage",
+            "viewType":"XML",
+            "viewId":"thirdpage"
+            
+            }
+            }
+        }
+	}
+}

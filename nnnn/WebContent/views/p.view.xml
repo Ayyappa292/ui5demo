@@ -1,0 +1,17 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="nnnn.controller.p"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<Page title="First Page" >
+		<content>
+		<Text text="I am in first Page"/>
+		<List items="{idontknow>/sample}">
+		<StandardListItem title="{idontknow>name}"/>
+		<StandardListItem title="{idontknow>/sample/phonenumber}"/>
+		<StandardListItem title="{id}"/>
+		</List>
+		<Button text="to page 2" press=".onpress"/>
+		</content>
+	</Page>
+</core:View>

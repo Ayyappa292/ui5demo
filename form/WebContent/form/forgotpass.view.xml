@@ -1,0 +1,24 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+		controllerName="form.forgotpass" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Reset">
+		<content>
+	<f:SimpleForm>
+	<f:title>
+	<core:Title text="Reset Page"/>
+	</f:title>
+	<f:content>
+	<Label text="Email-Id" required="true"/>
+	<Input id="EmailId" width="40%"/>
+	<Label/>
+	<Button text="Send OTP" width="40%" press="onOTP"/>
+	<Label text="Enter OTP" required="true"/>
+	<Input id="otp" width="40%"/><Button text="Submit"/>
+	<Label/>
+	<l:HorizontalLayout>
+	<Link text="Already Registered?" press="onLogin"/>
+	</l:HorizontalLayout>
+	</f:content>
+	</f:SimpleForm>
+		</content>
+	</Page>
+</core:View>

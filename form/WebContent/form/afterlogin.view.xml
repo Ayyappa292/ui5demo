@@ -1,0 +1,85 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="form.login" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page>
+		<content>
+
+			<tnt:ToolHeader active="true">
+				<Button icon="sap-icon://menu2" type="Transparent" />
+				<Image src="test-resources/sap/tnt/images/SAP_Logo.png" />
+				<ToolbarSpacer />
+				<Toolbar>
+				</Toolbar>
+				<Button icon="sap-icon://task" type="Transparent" />
+				<Button icon="sap-icon://bell" type="Transparent" />
+				<Button icon="sap-icon://user-settings" type="Transparent" />
+				<Button text="Logout" icon="sap-icon://log"
+					type="Transparent" press="onLogout" />
+			</tnt:ToolHeader>
+			<SplitApp id="splitapp" initialDetail="detail"
+				initialMaster="master">
+				<detailPages>
+					<Page id="detail">
+						<Text text="on a user to display information" />
+					</Page>
+					<Page id="demo1" title="User Information"
+						backgroundDesign="Solid">
+						<!-- <IconTabBar class="sapUiResponsiveContentPadding"> <items> <IconTabFilter 
+							icon="sap-icon://table-chart" text="Table"> <content> <Table headerText="info"> 
+							<columns> <Column width="12em"> <Text text="Si.No" /> </Column> <Column> 
+							<Text text="Name" /> </Column> <Column> <Text text="Employee ID" /> </Column> 
+							</columns> <items> <ColumnListItem> <cells> <Text text="1" /> </cells> <cells> 
+							<Text text="Ayyappa" /> </cells> <cells> <Text text="501" /> </cells> </ColumnListItem> 
+							<ColumnListItem> <cells> <Text text="2" /> </cells> <cells> <Text text="Manikanta" 
+							/> </cells> <cells> <Text text="502" /> </cells> </ColumnListItem> <ColumnListItem> 
+							<cells> <Text text="3" /> </cells> <cells> <Text text="Siva" /> </cells> 
+							<cells> <Text text="503" /> </cells> </ColumnListItem> <ColumnListItem> <cells> 
+							<Text text="4" /> </cells> <cells> <Text text="Likitha" /> </cells> <cells> 
+							<Text text="504" /> </cells> </ColumnListItem> <ColumnListItem> <cells> <Text 
+							text="5" /> </cells> <cells> <Text text="Alekhya" /> </cells> <cells> <Text 
+							text="505" /> </cells> </ColumnListItem> </items> </Table> </content> </IconTabFilter> 
+							<IconTabSeparator /> <IconTabFilter text="Profile" icon="sap-icon://account"> -->
+						<content>
+							<f:SimpleForm id="sform">
+								<f:title>
+									<core:Title text="Registration Form" />
+								</f:title>
+								<f:content >
+									<Label text="Full Name" required="true" />
+									<Input id="FName" width="40%" value="{fullname}"/>
+									<!-- <Label text="UserName" required="true" />
+									<Input id="UName" width="40%" value="{demo>username}"/>
+									<Label text="Email-Id" required="true" />
+									<Input id="EmailId" width="40%" value="{demo>email}"/>
+									<Label text="Password" required="true" />
+									<Input id="Pass" type="Password" width="40%" value="{demo>password}"/>
+									<Label text="Mobile Number" required="true" />
+									<Input id="MNumber" width="40%" value="{demo>phonenumber}"/> -->
+									
+								</f:content>
+							</f:SimpleForm>
+							<!-- <List items="{demo>/ouserdetails}" > <StandardListItem title="{demo>fullname}"/> 
+								<StandardListItem title="{demo>phonenumber}"/> <StandardListItem title="{demo>email}"/> 
+								</List> -->
+						</content>
+						<!-- </IconTabFilter> </items> </IconTabBar> -->
+					</Page>
+				</detailPages>
+				<masterPages>
+					<Page id="master" title="Users" backgroundDesign="List">
+						<SearchField width="100%" />
+						<List items="{demo>/ouser}" mode="SingleSelectMaster"
+							selectionChange=".onselectChange" id="listid">
+							<StandardListItem title="{demo>username}"
+								type="Navigation" custom:to="demo1" id="id1" />
+						</List>
+					</Page>
+
+				</masterPages>
+			</SplitApp>
+		</content>
+	</Page>
+</core:View>
+

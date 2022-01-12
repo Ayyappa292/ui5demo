@@ -1,0 +1,30 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="final.controllers.firstview"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="My Application">
+		<content>
+		<FlexBox
+				height="300px"
+				alignItems="Center"
+				justifyContent="Center">
+				<GenericTile
+				class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+				header="Login" subheader="Already Registered Members " press=".onlogintile">
+				<TileContent>
+					<ImageContent src="sap-icon://customer" />
+				</TileContent>
+			</GenericTile>
+
+			<GenericTile
+				class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+				header="Register" subheader="New User? Register Now " press=".onregistertile">
+				<TileContent>
+					<ImageContent src="sap-icon://add-employee" />
+				</TileContent>
+			</GenericTile>
+				
+			</FlexBox>
+		</content>
+	</Page>
+</core:View>

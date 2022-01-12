@@ -1,0 +1,45 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+		controllerName="form.login" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Registration Page">
+		<content>
+	<f:SimpleForm>
+	<f:title>
+	<core:Title text="Registration Form"/>
+	</f:title>
+	<f:content>
+	<Label text="Full Name" required="true"/>
+	<Input id="FName" width="40%"/>
+	<Label text="UserName" required="true"/>
+	<Input id="UName" width="40%"/>
+	<Label text="Email-Id" required="true"/>
+	<Input id="EmailId" width="40%"/>
+	<Label text="Password" required="true"/>
+	<Input id="Pass" type="Password" width="40%"/>
+	<Label text="Mobile Number" required="true"/>
+	<Input id="MNumber" width="40%"/>
+	<Label  required ="true" text="Date Of Birth"/>
+	<DatePicker width="30%"/>
+	<Label text="Select Country" required="true"/>
+	<ComboBox width="30%" change="handleChange" id="idComboBox">
+	<core:Item text="U.S.A" />
+	<core:Item text="India" />
+	<core:Item text="U.K" />
+	<core:Item text="Russia" />
+	<core:Item text="Australia" />
+	</ComboBox>
+	<Label text="Gender" />
+	<RadioButtonGroup>
+	<RadioButton text="Male" width="50%"/>
+	<RadioButton text="Female" width="50%"/>
+	</RadioButtonGroup>
+	<Label/>
+	<l:HorizontalLayout>
+	<Link text="Already Registered?" press="onLogin"/>
+	</l:HorizontalLayout>
+	<Label/>
+	<Button text="Submit" width="20%" press="onSubmit"/>
+	</f:content>
+	</f:SimpleForm>
+		</content>
+	</Page>
+</core:View>

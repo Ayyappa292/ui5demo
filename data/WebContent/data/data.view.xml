@@ -1,0 +1,15 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="data.data" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+	<Input value="{sam>/data/0/name}" width="50%"/>
+	<List items="{sam>/data}">
+	 <items>
+	 <StandardListItem title="{sam>name}"/>
+	 </items>
+
+	</List>
+	<Button text="next" press="onsubmit"/>
+		</content>
+	</Page>
+</core:View>

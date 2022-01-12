@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_highcontrastblack">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+		<script>
+				sap.ui.localResources("form");
+				var app = new sap.m.App("app1",{initialPage:"idform1"});
+				var page = sap.ui.view({id:"idform1", viewName:"form.login", type:sap.ui.core.mvc.ViewType.XML});
+				var page2 = sap.ui.view({id:"idform2", viewName:"form.form", type:sap.ui.core.mvc.ViewType.XML});
+				var page3 = sap.ui.view({id:"idform3", viewName:"form.forgotpass", type:sap.ui.core.mvc.ViewType.XML});
+				var page4 = sap.ui.view({id:"idform4", viewName:"form.afterlogin", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page).addPage(page2).addPage(page3).addPage(page4);
+				app.placeAt("content");
+		</script>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

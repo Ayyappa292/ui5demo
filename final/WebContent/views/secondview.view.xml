@@ -1,0 +1,22 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+		controllerName="final.controllers.secondview" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Login">
+	<content>
+	<f:SimpleForm>
+	<f:title>
+	<core:Title text="Login Form"/>
+	</f:title>	
+	<Label text="UserName" required="true"/>
+	<Input id="u1" width="30%"/>
+	<Label text="Password" required="true"/>
+	<Input id="p1" type="Password" width="30%"/>
+	<Label/>
+	<Link text="Forgot Password?" press="onForgot"/>
+	<Label/> 
+	<l:HorizontalLayout >
+	<Button text="Login" width="100%" press=".onlogin"/>
+	</l:HorizontalLayout>
+	</f:SimpleForm>
+		</content>
+	</Page>
+</core:View>

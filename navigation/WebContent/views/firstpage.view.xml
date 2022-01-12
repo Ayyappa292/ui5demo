@@ -1,0 +1,9 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="navigation.controllers.firstpage" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="first page">
+		<content>
+		<Text text="I am in First Page"/>
+	<Button text="To Page2" press=".onpress2"/>
+		</content>
+	</Page>
+</core:View>

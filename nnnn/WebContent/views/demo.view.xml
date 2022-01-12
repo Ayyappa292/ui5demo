@@ -1,0 +1,9 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="nnnn.controller.demo" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="2ndpage" showNavButton="true" navButtonPress=".goback1">
+		<content>
+		<Text text="I am in Second Page" /> 
+		<Button text="go to 3rd page" press=".onpress1"/>
+		</content>
+	</Page>
+</core:View>

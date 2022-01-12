@@ -1,0 +1,9 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="navigation.controllers.thirdpage" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Third Page" showNavButton="true" navButtonPress=".goback2">
+		<content>
+	<Text text="I am in Third Page"/>
+	
+		</content>
+	</Page>
+</core:View>

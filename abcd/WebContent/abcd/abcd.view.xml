@@ -1,0 +1,37 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="abcd.abcd" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+	<SplitApp initialDetail="detail" initialMaster="master">
+		<detailPages>
+			<Page title="User Information" backgroundDesign= "Solid">
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page
+				id="master"
+				title="Users"
+				backgroundDesign= "List" >
+				<List items="{ouser}" >
+				<StandardListItem title="{username}"/>
+				</List>
+			</Page>
+			<!-- <Page
+				id="master2"
+				title="Master 2"
+				backgroundDesign="List"
+				showNavButton="true"
+				navButtonPress=".onPressMasterBack">
+				<List itemPress=".onListItemPress">
+					<items>
+						<StandardListItem title="To Detail 1"/>
+						<StandardListItem title="To Detail 2"/>
+						<StandardListItem title="To Detail 3"/>
+					</items>
+				</List>
+			</Page> -->
+		</masterPages>
+	</SplitApp>
+		</content>
+	</Page>
+</core:View>

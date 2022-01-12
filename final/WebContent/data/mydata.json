@@ -1,0 +1,76 @@
+{
+	"ouser": [
+		{
+			"username": "ayyappa",
+			"password": "qwerty"
+		},
+		{
+			"username": "mani",
+			"password": "mani"
+		},
+		{
+			"username": "shiva",
+			"password": "shiva"
+		},
+		{
+			"username": "likitha",
+			"password": "likitha"
+		},
+		{
+			"username": "alekhya",
+			"password": "alekhya"
+		},
+		{
+			"username": "pivox",
+			"password": "pivox"
+		}
+		
+	],
+	"ouserdetails": [
+	{
+			"fullname": "Ayyappa Reddy",
+			"username": "ayyappa",
+			"password": "qwerty",
+			"email": "ayyappa@gmail.com",
+			"phonenumber": "9876543212"
+		},
+		{
+			"fullname": "mankikanta",
+			"username": "mani",
+			"password": "mani",
+			"email": "mani@gmail.com",
+			"phonenumber": "9376783468"
+		},
+		{
+			"fullname": "shiva",
+			"username": "shiva",
+			"password": "shiva",
+			"email": "shiva@gmail.com",
+			"phonenumber": "987235652"
+		},
+		{
+			"fullname": "likitha d",
+			"username": "likitha",
+			"password": "likitha",
+			"email": "likitha@gmail.com",
+			"phonenumber": "9372829219"
+		},
+		{
+			"fullname": "alekhya",
+			"username": "alekhya",
+			"password": "alekhya",
+			"email": "alekhya@gmail.com",
+			"phonenumber": "7896537281"
+		},
+		{
+			"fullname": "pivox labs",
+			"username": "pivox",
+			"password": "pivox",
+			"email": "pivox@gmail.com",
+			"phonenumber": "9876543211"
+		}
+	],
+	"details":[
+	
+	]
+}

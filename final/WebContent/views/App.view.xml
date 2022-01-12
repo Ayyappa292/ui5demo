@@ -1,0 +1,13 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="final.controllers..App" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="App"/>
+	<pages>
+	<page>
+	<content>
+	  <mvc:XMLView viewName="final.views.secondview"/>
+	    <mvc:XMLView viewName="final.views.thirdview"/>
+	   <mvc:XMLView viewName="final.views.fourthview"/>
+	</content>
+	</page>
+	</pages>
+</core:View>

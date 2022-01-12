@@ -1,0 +1,102 @@
+{
+	"sap.app": {
+		"version": "1.1.0",
+		"id": "final",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+	"rootView": "final.views.firstview",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+					
+				}
+			}
+		},
+		"models":{
+		"idontknow": {
+			"type": "sap.ui.model.json.JSONModel",
+			"uri": "data/mydata.json"
+		}
+		}, 
+		 "routing": {
+           "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async" : true,
+                "viewPath": "final.views",
+                "controlId":"App",
+                "controlAggregation": "pages"
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "firstview",
+                    "target": "firstview"
+                },
+                 {
+                    "pattern": "secondpage",
+                    "name": "secondview",
+                    "target": "secondview"
+                },
+                {
+                "pattern":"thirdpage",
+                "name":"thirdview",
+             	"target":"thirdview"
+                },
+                {
+                "pattern":"fourthpage",
+                "name":"fourthview",
+                "target":"fourthview"
+                }        
+            ],
+            "targets":{
+            "firstview":{
+            "viewName":"firstview",
+            "viewType": "XML",
+            "viewId":"view1",
+            "viewLevel":1
+            },
+            "secondview":{
+            "viewName":"secondview",
+            "viewType": "XML",
+            "viewId":"view2",
+            "viewLevel":2
+            },
+            "thirdview":{
+            "viewName":"thirdview",
+            "viewType":"XML",
+            "viewId":"view3"
+            },
+            "fourthview":{
+            "viewName":"fourthview",
+            "viewType":"XML",
+            "viewId":"view4"
+            }
+            }
+        },
+	"resources": {
+	  "css": [
+		{
+		  "uri": "css/style.css"
+		}
+	  ]
+	}
+	}
+}
