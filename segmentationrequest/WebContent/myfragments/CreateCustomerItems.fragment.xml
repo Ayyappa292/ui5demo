@@ -1,0 +1,120 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{myModel>/oType}" contentHeight="60%"
+		contentWidth="80%">
+		<Toolbar>
+			<ToolbarSpacer />
+			<Button icon="sap-icon://provision" />
+			<MenuButton icon="sap-icon://add" >
+				<menu>
+					<Menu itemSelected="onaddingItems">
+						<MenuItem text="1" press="onAdd" />
+						<MenuItem text="4" />
+						<MenuItem text="6" />
+					</Menu>
+				</menu>
+			</MenuButton>
+			<Button icon="sap-icon://copy" />
+			<Button icon="sap-icon://delete" press="onDeleteItems" />
+		</Toolbar>
+		<Table mode="MultiSelect" fieldGroupIds="dialogTable" id="ItemCreationTable" >
+			<columns>
+				<Column>
+					<Text text="{myModel>/oType}" />
+				</Column>
+				<Column>
+					<Text text="{myModel>/oDescription}" />
+				</Column>
+				<Column>
+					<Text text="material " />
+				</Column>
+				<Column>
+					<Text text="material discription" />
+				</Column>
+				<Column>
+					<Text text="Actions" />
+				</Column>
+				<Column>
+					<Text text="Valid From" />
+				</Column>
+				<Column>
+					<Text text="Valid To" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem fieldGroupIds="dialogItem">
+					<cells>
+						<Input 
+								id="Input1"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input id="description"/>
+						<Input 
+							id="Input2"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input />
+						<Input />
+						<DateTimePicker 
+							required="true" />
+						<DateTimePicker 
+							required="true" />
+					</cells>
+				</ColumnListItem>
+				<ColumnListItem>
+					<cells>
+						<Input 
+								id="Input3"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input />
+						<Input 
+							id="Input4"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input />
+						<Input />
+						<DateTimePicker 
+							required="true" />
+						<DateTimePicker 
+							required="true" />
+					</cells>
+				</ColumnListItem>
+				<ColumnListItem>
+					<cells>
+						<Input 
+								id="Input5"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input />
+						<Input 
+							id="Input6"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest=".onValueHelpRequested"/>
+						<Input />
+						<Input />
+						<DateTimePicker 
+							required="true" />
+						<DateTimePicker 
+							required="true" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+
+
+		<beginButton>
+			<Button text="cancel" press="onCancel" />
+		</beginButton>
+		<endButton>
+			<Button fieldGroupIds="save" text="save" type="Emphasized"
+				press="onSave" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

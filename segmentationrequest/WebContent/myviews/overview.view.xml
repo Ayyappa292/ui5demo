@@ -1,0 +1,202 @@
+<mvc:View
+	controllerName="segmentationrequest.mycontrollers.overview"
+	xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt" xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form" xmlns:m="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc" height="100%"
+	xmlns:sorter="sap.ui.model.sorter" xmlns:ui="sap.ui.table"
+	xmlns:c="sap.ui.core">
+	<Page showHeader="false" backgroundDesign="Transparent">
+		<tnt:ToolHeader>
+			<Button type="Back" press="onBack" />
+			<Image
+				src="https://experience.sap.com/fiori-design-web/wp-content/themes/guidelines/assets/sap.png"
+				width="60px" />
+			<Title text="Segmentation Request" level="H1" />
+			<ToolbarSpacer />
+		</tnt:ToolHeader>
+		<HBox backgroundDesign="Transparent">
+			<Panel headerText="Segment Type" backgroundDesign="Transparent">
+				<FlexBox width="30rem" height="210px" class="columns">
+					<items>
+						<m:InteractiveDonutChart id="type"
+							selectionChanged="onFilter" selectionEnabled="true">
+							<m:segments>
+								<m:InteractiveDonutChartSegment
+									id="customerSegment" label="Cust"
+									value="{myModel>/nCustRecordsCount}"
+									displayedValue="{myModel>/nCustRecordsCount}" />
+								<m:InteractiveDonutChartSegment
+									id="vendorSegment" label="Vend"
+									value="{myModel>/nVendRecordsCount}"
+									displayedValue="{myModel>/nVendRecordsCount}" />
+							</m:segments>
+						</m:InteractiveDonutChart>
+					</items>
+					<layoutData>
+						<FlexItemData growFactor="1" baseSize="0"
+							backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+					</layoutData>
+				</FlexBox>
+			</Panel>
+			<Panel headerText="Segmentation Request by Status"
+				backgroundDesign="Transparent">
+				<FlexBox width="30rem" height="210px" class="columns">
+					<items>
+						<m:InteractiveDonutChart id="status"
+							selectionChanged="onFilter">
+							<m:segments>
+								<m:InteractiveDonutChartSegment
+									selected="false" label="Active"
+									value="{myModel>/nActiveRecordsCount}"
+									displayedValue="{myModel>/nActiveRecordsCount}" />
+								<m:InteractiveDonutChartSegment
+									selected="false" label="InProgress"
+									value="{myModel>/nInprogressRecordsCount}"
+									displayedValue="{myModel>/nInprogressRecordsCount}" />
+								<m:InteractiveDonutChartSegment
+									label="Rejected" value="{myModel>/nRejectedRecordsCount}"
+									displayedValue="{myModel>/nRejectedRecordsCount}" />
+							</m:segments>
+						</m:InteractiveDonutChart>
+					</items>
+					<layoutData>
+						<FlexItemData growFactor="1" baseSize="0"
+							backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+					</layoutData>
+				</FlexBox>
+			</Panel>
+			<Panel headerText="Primary Partner"
+				backgroundDesign="Transparent">
+				<FlexBox width="30rem" height="210px" class="columns">
+					<m:InteractiveBarChart labelWidth="20%"
+						id="bars" selectionChanged="onFilter" displayedBars="4">
+						<m:bars>
+							<m:InteractiveBarChartBar label="PIVOX"
+								value="{myModel>/nPivoxRecordsCount}" />
+							<m:InteractiveBarChartBar
+								label="Flipkart" value="{myModel>/nFlipkartRecordsCount}" />
+							<m:InteractiveBarChartBar label="AMAZON"
+								value="{myModel>/nAmazonRecordsCount}" />
+							<m:InteractiveBarChartBar
+								label="BIGBAZAR" value="{myModel>/nBigbazarRecordsCount}" />
+						</m:bars>
+					</m:InteractiveBarChart>
+					<layoutData>
+						<FlexItemData growFactor="1" baseSize="0"
+							backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+					</layoutData>
+				</FlexBox>
+			</Panel>
+		</HBox>
+		<ui:Table id="SegmentationHeaderTable"
+			enableSelectAll="false" selectionMode="Single"
+			selectionBehavior="RowOnly" showColumnVisibilityMenu="true"
+			sort="sortId" rows="{myModel>/contractData}" 
+			rowSelectionChange=".onRowSelection">
+			<ui:extension>
+				<OverflowToolbar style="Clear">
+					<content>
+						<Title
+							text="Segmentation Request ({myModel>/TotalHeaderRecords})"
+							level="H1" />
+						<ToolbarSpacer />
+						<Button text="Refresh" icon="sap-icon://refresh"
+							press=".onRefresh" />
+						<Button icon="sap-icon://search"
+							press="onToggleSearchField" id="SearchButton" />
+						<SearchField width="10%" search="onSearch"
+							id="SearchField" visible="false" />
+					</content>
+				</OverflowToolbar>
+			</ui:extension>
+			<ui:rowSettingsTemplate>
+				<ui:RowSettings
+					highlight="{= ${myModel>Status} === 'ACTIVE' ? 'Success' : ${myModel>Status} === 'INPROGRESS' ? 'Information' : 'Error'}" />
+			</ui:rowSettingsTemplate>
+			<ui:columns>
+				<ui:Column width="12rem" sortProperty="Id">
+					<Label text="Segmentation Request Id" />
+					<ui:template>
+						<Text text="{myModel>Id}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="14rem">
+					<Label text="Description" />
+					<ui:template>
+						<Label text="{myModel>Title}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="9rem" hAlign="End"
+					sortProperty="PrimaryPartner">
+					<Label text="Primary Partner" />
+					<ui:template>
+						<Label text="{myModel>PrimaryPartner}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="10rem">
+					<Label text="Status" />
+					<ui:template>
+						<ObjectStatus text="{myModel>Status}"
+							state="{= ${myModel>Status} === 'ACTIVE' ? 'Success' : ${myModel>Status} === 'INPROGRESS' ? 'Information' : 'Error'}" 
+							icon="{= ${myModel>Status} === 'ACTIVE' ? 'sap-icon://complete' : ${myModel>Status} === 'INPROGRESS' ? 'sap-icon://process' : 'sap-icon://decline'}"/>
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="13rem">
+					<Label text="Segmentation Request Type" />
+					<ui:template>
+						<Label text="{myModel>SegReqTypeTitle}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="9rem" sortProperty="ValidFrom">
+					<Label text="Valid From" />
+					<ui:template>
+						<Label text="{myModel>ValidFrom}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="9rem">
+					<Label text="Valid To" />
+					<ui:template>
+						<Label text="{myModel>ValidTo}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="9rem">
+					<Label text="Created By" />
+					<ui:template>
+						<Label text="{myModel>CreatedBy}" />
+					</ui:template>
+				</ui:Column>
+				<ui:Column width="12rem">
+					<Label text="Created On" />
+					<ui:template>
+						<Label text="{myModel>CreatedOn}" />
+					</ui:template>
+				</ui:Column>
+			</ui:columns>
+		</ui:Table>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Button icon="sap-icon://create" text="Create"
+						press=".onCreateDialog" />
+
+				</contentMiddle>
+				<contentLeft>
+					<Button text="Show" icon="sap-icon://detail-more"
+						visible="{myModel>/boolean/value}" press="onTableItemShow" />
+					<Button text="Submit" icon="sap-icon://accept"
+						visible="{myModel>/boolean/value}" press="onSubmitItem" />
+					<Button text="Reject" icon="sap-icon://employee-rejections"
+						visible="{myModel>/boolean/value}" press="onRejectItem" />
+				</contentLeft>
+				<contentRight>
+					<Button text="EDIT" icon="sap-icon://edit"
+						visible="{myModel>/boolean/value}" press="onUpdateTableItem" />
+					<Button text="Delete" icon="sap-icon://delete"
+						visible="{myModel>/boolean/value}" press="onDeleteTableItem" />
+				</contentRight>
+
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

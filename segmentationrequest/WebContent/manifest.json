@@ -1,0 +1,96 @@
+{
+	"sap.app": {
+		"id": "segmentationrequest",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"datasources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZST_SER_BIN_CC_HEADER",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": false
+		}
+	},
+	"sap.ui5": {
+		"rootView": "segmentationrequest.myviews.tileview",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+					
+				}
+			}
+		},
+		"models": {
+			"myModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "data/mydata.json"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "segmentationrequest.myviews",
+				"controlId": [
+					"App"
+				],
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "firstview",
+					"target": "firstview"
+				},
+				{
+					"pattern": "overview",
+					"name": "overview",
+					"target": "overview"
+				},
+				{
+				    "pattern": "objectpageview/{Id}",
+					"name": "objectpageview",
+					"target": "objectpageview"
+				
+				}
+			],
+			"targets": {
+				"firstview": {
+					"viewName": "tileview",
+					"viewType": "XML",
+					"viewId": "view1"
+				},
+				"overview": {
+					"viewName": "overview",
+					"viewType": "XML"
+				},
+				"objectpageview":{
+				     "viewName": "objectpageview",
+					"viewType": "XML"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	}
+}

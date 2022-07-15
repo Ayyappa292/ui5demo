@@ -1,0 +1,169 @@
+<core:FragmentDefinition xmlns="sap.m"
+	controllerName="oo2.controllers.view2" xmlns:fl="sap.f"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout">
+
+	<Dialog title="Header Creation" contentHeight="70%"
+		contentWidth="30%">
+		<Wizard id="CreateProductWizard" class="wizardclass"
+			backgroundDesign="Transparent" complete="wizardCompletedHandler">
+			<WizardStep id="initial" title="Initial" validated="false"
+				activate="additionalInfoValidation">
+				<Label text=" " id="txt4" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt5" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt6" class="sapUiSmallMarginEnd" />
+				<Text text="Do you want to edit existing Segment?: " />
+				<html:br></html:br>
+				<Label text=" " id="txt7" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt8" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt9" class="sapUiSmallMarginEnd" />
+				<CheckBox text="Checkbox" selected="false" select="onClick" />
+
+				<Label text=" " id="txt10" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt11" class="sapUiSmallMarginEnd" />
+				<Label text=" " id="txt12" class="sapUiSmallMarginEnd" />
+				<!-- <Text text="What is the segment type for segmentation request?:" 
+					/> <Select id="idSelect" change="handleSelect"> <core:Item key="one" text="1" 
+					/> <core:Item key="two" text="2" /> </Select> -->
+
+				<form:SimpleForm editable="true" visible="true"
+					id="check1">
+
+					<Label text="What is the segment type for segment request?"
+						required="true" />
+					<ComboBox selectedKey="selected1" width="50%" id="SegType"
+						selectionChange="onSelectionChange" placeholder="Segment Type"
+						showSecondaryValues="true" value = "{myModel>/oSegment/Type}">
+						<core:ListItem key="cust" text="cust"
+							additionalText="CUST" />
+						<core:ListItem key="vend" text="vend"
+							additionalText="VEND" />
+
+					</ComboBox>
+					<Label text="What is the title of the segmentation request?"
+						required="true" />
+					<Input value="{myModel>/oSegment/Title}" width="50%"
+						placeholder="Segment Type Title" id="SegTitle"></Input>
+					<Label
+						text="What is the segmentation request type for segmentation request?"
+						required="true" />
+					<ComboBox selectedKey="selected2" width="50%"
+						placeholder="Segmentation Request Type" selectionChange="onChange"
+						showSecondaryValues="true" id="SegReqType" value = "{myModel>/oSegment/SegReqTypeTitle}" >
+						<core:ListItem text="REQ1" />
+						<core:ListItem text="REQ2" />
+
+					</ComboBox>
+
+				</form:SimpleForm>
+
+
+				<form:SimpleForm editable="true" visible="false"
+					id="custm">
+
+					<Label text="Customer" />
+					<Input value="{myModel>/oSegment/Customer}" width="50%"
+						id="Customer" />
+				</form:SimpleForm>
+
+				<form:SimpleForm editable="true" visible="false"
+					id="vendorvend">
+					<Label text="Vendor" />
+					<Input value="{myModel>/oSegment/Vendor}" width="50%"
+						id="Vendor" />
+				</form:SimpleForm>
+				<form:SimpleForm editable="true" visible="false"
+					id="chekverify">
+					<Label text="Segment Id" />
+					<Input value="{myModel>/selectedusersegment/productId}"
+						showValueHelp="true" width="50%"
+						valueHelpRequest=".onValueHelpRequestID"></Input>
+					<Label text="Title" />
+					<Input value="" width="50%" id="titleId"
+						liveChange="additionalInfoValidation"></Input>
+					<Label text="Segmentation Request Type" />
+					<ComboBox selectedKey="selected21" width="50%"
+						placeholder="Segmentation Request Type" showSecondaryValues="true">
+						<core:ListItem key="req11" text="REQ1"
+							additionalText="Request 1" />
+						<core:ListItem key="req21" text="REQ2"
+							additionalText="Request 2" />
+						<core:ListItem key="req31" text="REQ3 "
+							additionalText="ERequest 3" />
+					</ComboBox>
+				</form:SimpleForm>
+				<html:br></html:br>
+				<html:br></html:br>
+				<form:SimpleForm editable="true" visible="false"
+					id="check2">
+					<Label text="Purchase Organization" />
+					<ComboBox selectedKey="" width="50%" id="PurchaseOrgId"
+						selectionChange="onChangepurchase" value = "{myModel>/oSegment/PurchaseOrganisation}" >
+						<core:Item key="1" text="1710" />
+					</ComboBox>
+					<Label text="Purchase Group" />
+
+					<ComboBox selectedKey="" width="50%" id="PurGroup"
+						showSecondaryValues="true" value = "{myModel>/oSegment/PurchaseGroup}" >
+						<core:ListItem key="PurGroup" text="001" />
+					</ComboBox>
+				</form:SimpleForm>
+
+
+				<form:SimpleForm editable="true" visible="false"
+					id="check3">
+					<Label text="Sales Organization" />
+					<ComboBox selectedKey="" width="50%" id="SalesOrgId" value = "{myModel>/oSegment/SalesOrganisation}"
+						placeholder="Sales Organization" selectionChange="onChangesales">
+						<core:Item key="1" text="1610" />
+					</ComboBox>
+					<Label text="Distribution Channel" />
+					<ComboBox selectedKey="" width="50%" id="dschannel"
+						showSecondaryValues="true" value = "{myModel>/oSegment/DistributionChannel}">
+						<core:ListItem key="11" text="10" />
+					</ComboBox>
+					<Label text="Division" />
+					<ComboBox selectedKey="" width="50%" id="div"
+						showSecondaryValues="true" value = "{myModel>/oSegment/Division}">
+						<core:ListItem key="21" text="00" />
+					</ComboBox>
+					<Label text="Sales Group" />
+					<ComboBox selectedKey="" width="50%" id="SalesGroup"
+						showSecondaryValues="true" value = "{myModel>/oSegment/SalesGroup}">
+						<core:ListItem key="SalesGroup" text="002" />
+					</ComboBox>
+				</form:SimpleForm>
+			</WizardStep>
+			<WizardStep id="final" validated="false" title="final">
+				<form:SimpleForm editable="true" visible="true"
+					id="check4">
+					<Label text="External Reference" />
+					<Input value="{myModel>/oSegment/ExternalReference}"
+						placeholder="External Reference" width="50%" id="ExtrnlRef" />
+					<Label text="Primary Partner" />
+					<ComboBox selectedKey="" width="50%" id="PrimaryPartner"
+						placeholder="Primary Partner" selectionChange="" value = "{myModel>/oSegment/PrimaryPartner}">
+						<core:Item key="AMAZON" text="AMAZON" />
+						<core:Item key="BIGBAZAR" text="BIGBAZAR" />
+						<core:Item key="FLIPKART" text="FLIPKART" />
+						<core:Item key="PIVOX" text="PIVOX" />
+					</ComboBox>
+					<Label text="Valid From" />
+					<DateTimePicker id="ValidFrom"
+						placeholder="valid from"  class="sapUiSmallMarginBottom1"
+						width="50%" value = "{myModel>/oSegment/ValidFrom}"/>
+					<Label text="Valid To" />
+					<DateTimePicker id="ValidTo" placeholder="valid to"
+						value = "{myModel>/oSegment/ValidTo}" change="handleChange2"
+						class="sapUiSmallMarginBottom2" width="50%" />
+				</form:SimpleForm>
+				<Button text="create" press="onCreateContract"
+					type="Emphasized" width="20%" />
+			</WizardStep>
+		</Wizard>
+		<endButton>
+			<Button text="Cancel" press=".onCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

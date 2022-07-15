@@ -1,0 +1,23 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	controllerName="segmentationrequest.mycontrollers.tileview"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+	<tnt:ToolHeader>
+		<Image src="https://experience.sap.com/fiori-design-web/wp-content/themes/guidelines/assets/sap.png" width="60px"/>
+		<Text text="Segmentation Request" wrapping="false" />
+		<ToolbarSpacer />
+	</tnt:ToolHeader>
+		<content>
+			<FlexBox height="400px" alignItems="Center"
+				justifyContent="Center">
+				<GenericTile header="Segmentation Request"
+					press=".onTilePress">
+					<TileContent>
+						<ImageContent src="sap-icon://business-objects-mobile" />
+					</TileContent>
+				</GenericTile>
+			</FlexBox>
+		</content>
+	</Page>
+</core:View>

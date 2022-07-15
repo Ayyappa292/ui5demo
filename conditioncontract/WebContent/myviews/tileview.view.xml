@@ -1,0 +1,18 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="conditioncontract.mycontrollers.tileview"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Condition Contract">
+		<content>
+			<FlexBox height="400px" alignItems="Center"
+				justifyContent="Center">
+				<GenericTile header="Condition Contract"
+					press=".onTilePress">
+					<TileContent footer="Contract Details">
+						<ImageContent src="sap-icon://decision" />
+					</TileContent>
+				</GenericTile>
+			</FlexBox>
+		</content>
+	</Page>
+</core:View>

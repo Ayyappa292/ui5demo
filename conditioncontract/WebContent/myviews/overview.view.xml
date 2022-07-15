@@ -1,0 +1,40 @@
+<mvc:View
+	controllerName="conditioncontract.mycontrollers.overview"
+	xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt" xmlns:layout="sap.ui.layout"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:m="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" height="100%">
+	<Page showHeader="false">
+
+		<VBox fitContainer="true">
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Products" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Bukrs" enableBasicSearch="true" >
+				<smartFilterBar:controlConfiguration>
+					<smartFilterBar:ControlConfiguration key="ProductId">
+				
+					</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration key="ProductId">
+					
+						</smartFilterBar:ControlConfiguration>
+				</smartFilterBar:controlConfiguration>
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartFilterBar:layoutData>
+					<FlexItemData shrinkFactor="0"/>
+				</smartFilterBar:layoutData>
+			</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable id="LineItemsSmartTable" entitySet="Products" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true" app:useSmartToggle="true">
+	
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+		</VBox>
+
+	</Page>
+</mvc:View>
+

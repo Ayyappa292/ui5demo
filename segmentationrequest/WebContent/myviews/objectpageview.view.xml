@@ -1,0 +1,303 @@
+<core:View xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt"
+	xmlns:v="sap.uxap" xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.f"
+	xmlns:layout="sap.ui.layout"
+	controllerName="segmentationrequest.mycontrollers.objectpageview"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:ui="sap.suite.ui.commons">
+	<tnt:ToolHeader>
+		<Button type="Back" press="onBack" />
+		<Image
+			src="https://experience.sap.com/fiori-design-web/wp-content/themes/guidelines/assets/sap.png"
+			width="60px" />
+		<Title text="Segmentation Request" level="H1" />
+		<ToolbarSpacer />
+	</tnt:ToolHeader>
+	<f:DynamicPage
+		class="sapUiNoContentPadding sapUiSizeCompact" showFooter="true">
+		<f:header class="adjustHeaderPadding">
+			<f:DynamicPageHeader pinnable="false"
+				class="adjustHeaderPadding">
+				<f:content>
+					<HBox height="auto" renderType="Bare">
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd">
+							<Label text="CustomerSegment" class="sapMLabelBold" />
+							<ObjectStatus text="{myModel>/oSelectedRecord/Id}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd"
+							visible="{= ${sideNavigationModel>/contractTypeData/partnerType} === 'K'}">
+							<Label text="Segment Type" class="sapMLabelBold" />
+							<ObjectStatus text="{myModel>/oType}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd"
+							visible="{= ${sideNavigationModel>/contractTypeData/header/partnerType} === 'L'}">
+							<Label text="Primary Partner" class="sapMLabelBold" />
+							<ObjectStatus
+								text="{myModel>/oSelectedRecord/PrimaryPartner}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd">
+							<Label text="Segmentation Request Type"
+								class="sapMLabelBold" />
+							<ObjectStatus
+								text="{myModel>/oSelectedRecord/SegReqTypeTitle}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd">
+							<Label text="Valid From" class="sapMLabelBold" />
+							<ObjectStatus
+								text="{myModel>/oSelectedRecord/ValidFrom}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd">
+							<Label text="Valid To" class="sapMLabelBold" />
+							<ObjectStatus
+								text="{myModel>/oSelectedRecord/ValidTo}" />
+						</l:VerticalLayout>
+						<l:VerticalLayout width="25%"
+							class="sapUiLargeMarginEnd">
+							<Label text="Status" class="sapMLabelBold" />
+							<ObjectStatus
+								text="{myModel>/oSelectedRecord/Status}"
+								state="{= ${myModel>/oSelectedRecord/Status} === 'ACTIVE' ? 'Success' : ${myModel>/oSelectedRecord/Status} === 'INPROGRESS' ? 'Information' : 'Error'}" />
+						</l:VerticalLayout>
+					</HBox>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<tnt:ToolPage id="toolPage">
+				<tnt:header>
+					<tnt:ToolHeader>
+						<Button id="sideNavigationToggleButton"
+							icon="sap-icon://menu2" type="Transparent"
+							press=".onSideNavButtonPress">
+						</Button>
+						<Text
+							text="Display Segmentation Request :{myModel>/oSelectedRecord/Id}"
+							class="bold" />
+						<ToolbarSpacer />
+						<Text text="{myModel>/sSelectedKey}" class="bold" />
+						<ToolbarSpacer />
+					</tnt:ToolHeader>
+				</tnt:header>
+				<!-- <tnt:sideContent> <tnt:SideNavigation expanded="true"> <tnt:NavigationList> 
+					<tnt:NavigationListItem text="GeneralDetails" class = "data" icon="sap-icon://building" 
+					select="onGeneralDetails" /> <tnt:NavigationListItem text=" BusinessVolume 
+					" class = "data" icon="sap-icon://activity-items" select="onBusinessVolume" 
+					/> <tnt:NavigationListItem text=" flow " icon="sap-icon://activity-items" 
+					class = "data" select="onFlow" /> </tnt:NavigationList> </tnt:SideNavigation> 
+					</tnt:sideContent> -->
+				<tnt:sideContent>
+					<tnt:SideNavigation expanded="true"
+						itemSelect=".onItemSelect" id="NavigationList">
+
+						<tnt:NavigationList items="{myModel>/side}">
+							<tnt:NavigationListItem
+								text="{myModel>name}" icon="{myModel>icon}" key="{myModel>key}" />
+						</tnt:NavigationList>
+					</tnt:SideNavigation>
+				</tnt:sideContent>
+				<tnt:mainContents>
+					<NavContainer id="Navcon">
+						<!-- <Page id="loadingpage" showHeader="false"> <MessagePage showHeader="false" 
+							text=" " /> </Page> -->
+						<Page id="General_Details" showHeader="false">
+							<l:DynamicSideContent equalSplit="true">
+								<Text text="Organization"
+									class="data sapUiLargeMarginBegin" />
+								<form:SimpleForm editable="true"
+									backgroundDesign="Transparent">
+									<form:content>
+										<Label text="Sales Organization" class="data" />
+										<Text text="{myModel>/oSelectedRecord/SalesOrganisation}"
+											class="data" />
+										<Label text="Distribution Channel" class="data" />
+										<Text
+											text="{myModel>/oSelectedRecord/DistributionChannel}"
+											class="data" />
+										<Label text="Divisoin" class="data" />
+										<Text text="{myModel>/oSelectedRecord/Division}"
+											class="data" />
+										<Label text="Sales Office" class="data" />
+										<Text text="{myModel>/oSelectedRecord/SalesOffice}"
+											class="data" />
+										<Label text="Sales Group" class="data" />
+										<Text text="{myModel>/oSelectedRecord/SalesGroup}"
+											class="data" />
+									</form:content>
+								</form:SimpleForm>
+								<l:sideContent>
+									<Text text="Admin" class="data sapUiLargeMarginBegin" />
+									<form:SimpleForm editable="true"
+										backgroundDesign="Transparent">
+										<form:content>
+											<Label text="created By" class="data" />
+											<Text text="{myModel>/oSelectedRecord/CreatedBy}"
+												class="data" />
+										</form:content>
+									</form:SimpleForm>
+								</l:sideContent>
+							</l:DynamicSideContent>
+						</Page>
+						<Page id="Business_Volume" showHeader="false">
+							<content>
+								<!-- <ComboBox width="20%"> <core:Item key="1" text="Customer/Material" 
+									/> <core:Item key="2" text="Customer " /> </ComboBox> -->
+								<Table id="idProductsTable" mode="MultiSelect"
+									items="{myModel>/oSelectedItemRecord}">
+									<headerToolbar>
+										<OverflowToolbar>
+											<content>
+												<ToolbarSpacer />
+												<SearchField width="20%"
+													class="sapUiSmallMargin" liveChange="onSearch" />
+												<core:Icon src='sap-icon://provision' />
+												<core:Icon src="sap-icon://add-filter" />
+												<MenuButton text="Actions" class="menu">
+													<Menu itemSelected="onOperation">
+														<MenuItem text="Add" icon="sap-icon://add" />
+														<MenuItem text="edit" icon="sap-icon://edit" />
+														<MenuItem text="delete" icon="sap-icon://delete" />
+													</Menu>
+												</MenuButton>
+											</content>
+										</OverflowToolbar>
+									</headerToolbar>
+									<columns>
+										<Column width="12em">
+											<Text text="{myModel>/oType}" />
+										</Column>
+										<Column width="12em">
+											<Text text="{myModel>/oDescription}" />
+										</Column>
+										<Column width="12em">
+											<Text text="Material" />
+										</Column>
+
+										<Column width="12em">
+											<Text text="Material Description" />
+										</Column>
+
+										<Column width="12em">
+											<Text text="Action" />
+										</Column>
+
+										<Column width="12em">
+											<Text text="ValidFrom" />
+										</Column>
+										<Column width="12em">
+											<Text text="ValidTo" />
+										</Column>
+
+									</columns>
+									<items>
+										<ColumnListItem id="CustomerListItem">
+											<cells>
+												<Label
+													text="{= ${myModel>/oSelectedRecord/Type} === 'CUST' ? ${myModel>Customer} : ${myModel>Vendor} }" />
+												<Label
+													text="{= ${myModel>/oSelectedRecord/Type} === 'CUST' ? ${myModel>CustomerDescription} : ${myModel>VendorrDescription} }" />
+												<Label text="{myModel>Material}" />
+												<Label text="{myModel>MaterialDescription}" />
+												<Label text="{myModel>Action}" />
+												<Label text="{myModel>ValidFrom}" />
+												<Label text="{myModel>ValidTo}" />
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</content>
+						</Page>
+						<Page id="Approvals" showHeader="false">
+							<content>
+								<ui:ProcessFlow id="processflow1"
+									nodePress="onNodePress">
+									<ui:nodes>
+										<ui:ProcessFlowNode nodeId="1" laneId="id0"
+											title="Data" titleAbbreviation="Data"
+											isTitleClickable="false" children="2"
+											state="{= ${myModel>/oSelectedRecord/Status} === 'ACTIVE' ? 'Positive' : ${myModel>/oSelectedRecord/Status} === 'INPROGRESS' ? 'Positive' : ${myModel>/oSelectedRecord/Status} === 'REJECTED' ? 'Negative' : 'Negative' }"
+											texts="Data Recieved" />
+										<ui:ProcessFlowNode nodeId="2" laneId="id1"
+											children="12" title="Reviewer" titleAbbreviation="RV"
+											state="{= ${myModel>/oSelectedRecord/Status} === 'ACTIVE' ? 'Positive' : ${myModel>/oSelectedRecord/Status} === 'INPROGRESS' ? 'Critical' : ${myModel>/oSelectedRecord/Status} === 'REJECTED' ? 'Negative' : 'Negative' }"
+											texts="Data Reviewed by officals" />
+
+										<ui:ProcessFlowNode nodeId="12"
+											laneId="id2" title="Approver" titleAbbreviation="AP"
+											isTitleClickable="false" children="5"
+											state="{= ${myModel>/oSelectedRecord/Status} === 'ACTIVE' ? 'Positive' : ${myModel>/oSelectedRecord/Status} === 'INPROGRESS' ? 'Critical' : ${myModel>/oSelectedRecord/Status} === 'REJECTED' ? 'Negative' : 'Negative' }"
+											texts="Data is Approved" />
+										<ui:ProcessFlowNode nodeId="5" laneId="id3"
+											title="Final Status" titleAbbreviation="FS"
+											state="{= ${myModel>/oSelectedRecord/Status} === 'ACTIVE' ? 'Positive' : ${myModel>/oSelectedRecord/Status} === 'INPROGRESS' ? 'Negative' : ${myModel>/oSelectedRecord/Status} === 'REJECTED' ? 'Negative' : 'Negative' }"
+											texts="Activated" />
+									</ui:nodes>
+									<ui:lanes>
+										<ui:ProcessFlowLaneHeader
+											laneId="id0" iconSrc="sap-icon://database" text="Data"
+											position="0" />
+										<ui:ProcessFlowLaneHeader
+											laneId="id1" iconSrc="sap-icon://detail-view" text="Reviewer"
+											position="1" />
+										<ui:ProcessFlowLaneHeader
+											laneId="id2" iconSrc="sap-icon://approvals" text="Approver"
+											position="2" />
+										<ui:ProcessFlowLaneHeader
+											laneId="id3" iconSrc="sap-icon://message-success"
+											text="Final Status" position="3" />
+									</ui:lanes>
+								</ui:ProcessFlow>
+							</content>
+						</Page>
+						<Page id="Vendor" showHeader="false">
+							<content>
+								<l:DynamicSideContent
+									id="DynamicSideContent1" equalSplit="true"
+									class=" sapUiContentPadding">
+									<Text text="Organization"
+										class="data sapUiLargeMarginBegin" />
+									<form:SimpleForm editable="true"
+										backgroundDesign="Transparent">
+										<form:content>
+											<Label text="purchase Organization" />
+											<Text
+												text="{myModel>/oSelectedRecord/PurchaseOrganisation}" />
+											<Label text="purchase Group" />
+											<Text text="{myModel>/oSelectedRecord/PurchaseGroup}" />
+											<Label text="External reference" />
+											<Text
+												text="{myModel>/oSelectedRecord/ExternalReference}" />
+
+										</form:content>
+									</form:SimpleForm>
+									<l:sideContent>
+										<Text text="Admin" class="data sapUiLargeMarginBegin" />
+										<form:SimpleForm editable="true"
+											backgroundDesign="Transparent">
+											<form:content>
+												<Label text="created By" />
+												<Text text="{myModel>/oSelectedRecord/CreatedBy}" />
+											</form:content>
+										</form:SimpleForm>
+									</l:sideContent>
+								</l:DynamicSideContent>
+							</content>
+						</Page>
+					</NavContainer>
+				</tnt:mainContents>
+			</tnt:ToolPage>
+		</f:content>
+	</f:DynamicPage>
+	<core:Fragment
+		fragmentName="segmentationrequest.myfragments.CustomerValueHelp"
+		type="XML"></core:Fragment>
+</core:View>

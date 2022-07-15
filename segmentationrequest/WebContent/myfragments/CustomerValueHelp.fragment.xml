@@ -1,0 +1,66 @@
+<!-- <core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="name" id="name" contentHeight="70%"
+		contentWidth="50%">
+		<HBox>
+			<Text text="{myModel>/oType}" />
+			<Text text="({myModel>/count})" />
+		</HBox>
+		<Table mode="SingleSelectMaster"
+			items="{myModel>/aCustomerVendor}" id="CustomerValueHelpTable"
+			selectionChange="onCustomerValueHelpItem">
+			<columns>
+				<Column>
+					<Text text="{myModel>/oType}" />
+				</Column>
+				<Column>
+					<Text text="{myModel>/oDescription}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{myModel>Name}" />
+						<Text text="{myModel>Description}" />
+					</cells>
+				</ColumnListItem>
+
+			</items>
+		</Table>
+		<endButton>
+			<Button text="Close" press="onCustomerValueHelpClose"
+				type="Ghost"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition> -->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No Products Found"
+		title="Select Product"
+		confirm=".handleValueHelpClose"
+		cancel=".handleValueHelpClose"
+		showClearButton="true"
+		items="{myModel>/aCustomerVendor}"
+	>
+		<ColumnListItem selected="{selected}">
+			<cells>
+				<Text text="{myModel>Name}" />
+				<Text text="{myModel>Description}" />				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column>
+				<header>
+					<Text text="Name" />
+				</header>
+			</Column>
+			<Column >
+				<header>
+					<Text text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

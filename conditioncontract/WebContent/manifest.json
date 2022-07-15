@@ -1,0 +1,96 @@
+{
+	"sap.app": {
+		"id": "conditioncontract",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZNS_SER_CC_HD_BIN/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": false
+		}
+	},
+	"sap.ui5": {
+		"rootView": "conditioncontract.myviews.tileview",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+					
+				}
+			}
+		},
+		"models": {
+			"myModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "data/mydata.json"
+			},
+			"":{
+			"dataSource":"mainService"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "conditioncontract.myviews",
+				"controlId": [
+					"App"
+				],
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "firstview",
+					"target": "firstview"
+				},
+				{
+					"pattern": "overview",
+					"name": "overview",
+					"target": "overview"
+				}
+			],
+			"targets": {
+				"firstview": {
+					"viewName": "tileview",
+					"viewType": "XML",
+					"viewId": "view1"
+				},
+				"overview": {
+					"viewName": "overview",
+					"viewType": "XML"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	},
+  "models": {
+          "": {
+              "dataSource": "mainService",
+              "settings" : {
+                                  "defaultBindingMode": "TwoWay"                                
+           }
+         }
+  }
+}
